@@ -1,0 +1,154 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Karla", sans-serif;
+}
+@font-face {
+  font-family: "Karla";
+  src: url(./fonts/Karla-VariableFont_wght.ttf);
+}
+:root {
+  --cyan: hsl(179, 62%, 43%);
+  --bright-yellow: hsl(71, 73%, 54%);
+  --light-gray: hsl(204, 43%, 93%);
+  --grayish-blue: hsl(218, 22%, 67%);
+  --font-size-paragraph: 16px;
+  --font-family: "Karla";
+  --font-medium: 400;
+  --font-bold: 700;
+}
+/* Start with desktop */
+body {
+  background: #e5eff5;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Main Container - Grid Layout */
+.container {
+  max-width: 635px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  display: grid;
+  /* NOTE: first row take contain size and second row take all residual space */
+  grid-template-rows: auto 1fr;
+  /* [ ] we use only row here, then on every row we decise what layout method to follow it */
+}
+
+/* Community Section - Flex Layout */
+.community {
+  background: white;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.community h1 {
+  color: #2ab2af;
+  margin-bottom: 0.5rem;
+}
+
+.community .guarantee {
+  color: #c0df34;
+  font-weight: 700;
+}
+
+.community p {
+  color: #98a6bd;
+  line-height: 1.6;
+}
+
+/* Bottom Section - Grid Layout */
+.bottom-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Subscription Section - Flex Layout */
+.subscription {
+  background: #2ab2af;
+  padding: 2.5rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+/* NOTE: how we use flex with span */
+.price-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.subscription button {
+  width: 100%;
+  padding: 1rem;
+  background: #c0df34;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 700;
+  margin-top: 1rem;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Features Section - Grid Layout */
+.features {
+  background: #4abebd;
+  /* COMMENT: same padding as on subscription>> to start from same point */
+  padding: 2.5rem;
+  color: white;
+  /* [ ] use grid instead of mb */
+  display: grid;
+  gap: 0.8rem;
+  /* margin-bottom: 0.8rem; */
+}
+
+.features h2 {
+  margin-bottom: 1rem;
+}
+
+.features ul {
+  list-style: none;
+  /* [ ] use grid instead of mb */
+  display: grid;
+  gap: 0.3rem;
+  /* margin-bottom: 0.3rem; */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    grid-template-rows: auto;
+  }
+  /* NOTE: to use one column only */
+  .bottom-section {
+    grid-template-columns: 1fr;
+  }
+  /* [ ] to start from same point  */
+  .community,
+  .subscription,
+  .features {
+    padding: 1.5rem;
+  }
+
+  .community h1 {
+    font-size: 1.5rem;
+  }
+
+  .price {
+    font-size: 1.8rem;
+  }
+}
